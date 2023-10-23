@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <h1 id="aba-index">Gerenciamento de Estoque</h1>
+
+    <ul class="nav">
+        <li><a href="#" id="aba-cadastrar">Cadastrar Produto</a></li>
+        <li><a href="#" id="aba-excluir">excluir produto</a></li>
+        <li><a href="#" id="aba-preco-custo">Cadastrar Preço de Custo</a></li>
+        <li><a href="#" id="aba-preco-venda">Cadastrar Preço de venda</a></li>
+        <li><a href="#" id="aba-buscar-produto-por-codigo">Buscar produto com codigo</a></li>
+        <li><a href="#" id="aba-buscar-produto-por-nome">Buscar produto por nome</a></li>
+        <li><a href="#" id="aba-atualizar">Atualizar Produto</a></li>
+        <li><a href="#" id="aba-listar">Listar todos os Produtos</a></li>
+        <li><a href="#" id="aba-movimentacao">movimentar produto</a></li>
+        <li><a href="#" id="aba-buscar-entradas">buscar entradas</a></li>
+        <li><a href="#" id="aba-buscar-saidas">buscar saidas</a></li>
+        <li><a href="#" id="aba-estornar-entrada">estornar entrada</a></li>
+        <li><a href="#" id="aba-estornar-saida">estornar saida</a></li>
+        <li><a href="#" id="aba-comparativo">aba comparativo</a></li>
+        <!-- Adicione mais abas conforme necessário -->
+    </ul>
+
+
+    <div class="conteudo">
+
+        <div id="aba-cadastrar-conteudo" class="aba-conteudo">
+            <h2>Cadastrar Produto</h2>
+            <form id="cadastrarProdutoForm">
+                <label for="codBarras">Código de Barras:</label>
+                <input type="text" id="codBarras" name="codBarras" required>
+                <br>
+                <label for="descricao">Descrição:</label>
+                <input type="text" id="descricao" name="descricao" required>
+                <br>
+                <label for="valor">Valor:</label>
+                <input type="number" id="valor" name="valor" required>
+                <br>
+                <label for="estoqueMinimo">Estoque Mínimo:</label>
+                <input type="number" id="estoqueMinimo" name="estoqueMinimo" required>
+                <br>
+                <label for="estoqueAtual">Estoque Atual:</label>
+                <input type="number" id="estoqueAtual" name="estoqueAtual" required>
+                <br>
+                <label for="precoCusto">Preço de Custo:</label>
+                <input type="number" id="precoCusto" name="precoCusto" required>
+                <br>
+                <label for="precoVenda">Preço de Venda:</label>
+                <input type="number" id="precoVenda" name="precoVenda" required>
+                <br>
+                <label for="dataEntradaEstoque">Data de Entrada no Estoque:</label>
+                <input type="date" id="dataEntradaEstoque" name="dataEntradaEstoque" required>
+                <br>
+                <button type="submit">Cadastrar Produto</button>
+            </form>
+            <div id="resultado-cadastrar"></div>
+        </div>
+
+        <div id="aba-preco-custo-conteudo" class="aba-conteudo">
+            <!-- Conteúdo da aba "Cadastrar Preço de Custo" -->
+            <h2>Cadastrar Preço de Custo</h2>
+            <form id="cadastrarPrecoCustoForm">
+                <label for="idProdutoPrecoCusto">ID do Produto:</label>
+                <input type="number" id="idProdutoPrecoCusto" name="idProdutoPrecoCusto" required>
+                <br>
+                <label for="custo">Custo:</label>
+                <input type="number" id="custo" name="custo" required>
+                <br>
+                <label for="quantidadeComprada">Quantidade Comprada:</label>
+                <input type="number" id="quantidadeComprada" name="quantidadeComprada" required>
+                <br>
+                <button type="submit">Cadastrar Preço de Custo</button>
+            </form>
+            <div id="resultado-preco-custo"></div>
+        </div>
+
+        <div id="aba-preco-venda-conteudo" class="aba-conteudo">
+            <h2>Cadastrar Preço de Venda</h2>
+            <form id="cadastrarPrecoVendaForm">
+                <label for="idProdutoPrecoVenda">ID do Produto:</label>
+                <input type="number" id="idProdutoPrecoVenda" name="idProdutoPrecoVenda" required>
+                <br>
+                <label for="precoVenda">Preço de Venda:</label>
+                <input type="number" id="precoVenda" name="precoVenda" required>
+                <br>
+                <button type="submit">Cadastrar Preço de Venda</button>
+            </form>
+            <div id="resultado-preco-venda"></div>
+        </div>
+
+        <div id="aba-detalhes-conteudo" class="aba-conteudo">
+            <!-- Conteúdo da aba "Detalhes do Produto" -->
+            <h2>Detalhes do Produto</h2>
+            <form id="detalhesProdutoForm">
+                <label for="idProdutoDetalhes">ID do Produto:</label>
+                <input type="number" id="idProdutoDetalhes" name="idProdutoDetalhes" required>
+                <button type="submit">Buscar Produto</button>
+            </form>
+
+            <div id="detalhes-produto">
+                <!-- Aqui serão exibidos os detalhes do produto -->
+            </div>
+
+        </div>
+
+        <div id="aba-atualizar-conteudo" class="aba-conteudo">
+            <!-- Conteúdo da aba "Atualizar Produto" -->
+            <h2>Atualizar Produto</h2>
+            <form id="buscarProdutoForm">
+                <label for="idProdutoAtualizar">ID do Produto:</label>
+                <input type="number" id="idProdutoAtualizar" name="idProdutoAtualizar" required>
+                <button type="submit">Buscar Produto</button>
+            </form>
+
+            <form id="atualizarProdutoForm">
+                <!-- Campos para atualizar o produto -->
+                <div id="detalhes-produto-atualizacao">
+                    <!-- Aqui serão exibidos os detalhes do produto para edição -->
+                    <label for="codBarrasAtualizacao">Código de Barras:</label>
+                    <input type="text" id="codBarrasAtualizacao" name="codBarrasAtualizacao" required>
+                    <br>
+                    <label for="descricaoAtualizacao">Descrição:</label>
+                    <input type text" id="descricaoAtualizacao" name="descricaoAtualizacao" required>
+                    <br>
+                    <label for="valorAtualizacao">Valor:</label>
+                    <input type="number" id="valorAtualizacao" name="valorAtualizacao" required>
+                    <br>
+                    <label for="estoqueMinimoAtualizacao">Estoque Mínimo:</label>
+                    <input type="number" id="estoqueMinimoAtualizacao" name="estoqueMinimoAtualizacao" required>
+                    <br>
+                    <label for="estoqueAtualAtualizacao">Estoque Atual:</label>
+                    <input type="number" id="estoqueAtualAtualizacao" name="estoqueAtualAtualizacao" required>
+                    <br>
+                    <label for="precoCustoAtualizacao">Preço de Custo:</label>
+                    <input type="number" id="precoCustoAtualizacao" name="precoCustoAtualizacao" required>
+                    <br>
+                    <label for="precoVendaAtualizacao">Preço de Venda:</label>
+                    <input type="number" id="precoVendaAtualizacao" name="precoVendaAtualizacao" required>
+                    <br>
+                    <label for="dataEntradaEstoqueAtualizacao">Data de Entrada no Estoque:</label>
+                    <input type="date" id="dataEntradaEstoqueAtualizacao" name="dataEntradaEstoqueAtualizacao" required>
+                </div>
+                <button type="submit">Atualizar Produto</button>
+            </form>
+
+            <div id="resultado-atualizacao">
+                <!-- Aqui será exibida a mensagem de resultado da atualização do produto -->
+            </div>
+        </div>
+
+        <div id="aba-excluir-conteudo" class="aba-conteudo">
+            <!-- Conteúdo da aba "Excluir Produto" -->
+            <h2>Excluir Produto</h2>
+            <form id="excluirProdutoForm">
+                <label for="idProdutoParaExcluir">ID do Produto:</label>
+                <input type="number" id="idProdutoParaExcluir" name="idProdutoParaExcluir" required>
+                <button id="excluirProdutoBtn" type="button">Excluir Produto</button>
+            </form>
+
+            <div id="resultado-exclusao">
+                <!-- Aqui será exibida a mensagem de resultado da exclusão do produto -->
+            </div>
+        </div>
+
+        <div id="aba-listar-conteudo" class="aba-conteudo">
+            <!-- Conteúdo da aba "Listar Produtos" -->
+            <h2>Listar Produtos</h2>
+            <div id="lista-de-produtos">
+                <!-- Aqui serão exibidos os produtos -->
+            </div>
+        </div>
+
+        <div id="aba-buscar-por-nome-conteudo" class="aba-conteudo">
+            <h2>Buscar Produto por Nome</h2>
+            <label for="nomeDoProduto">Nome do Produto:</label>
+            <input type="text" id="nomeDoProduto" placeholder="Digite o nome do produto">
+            <button id="buscarPorNome">Buscar</button>
+
+            <div id="resultado-busca-por-nome">
+                <!-- Aqui serão exibidos os resultados da busca -->
+            </div>
+        </div>
+
+        <div id="aba-movimentacao-conteudo" class="aba-conteudo">
+            <h2>Registro de Movimentação de Produto</h2>
+            <form id="movimentacaoProdutoForm">
+                <label for="produtoIdMovimentacao">ID do Produto:</label>
+                <input type="number" id="produtoIdMovimentacao" name="produtoIdMovimentacao" required>
+                <br>
+                <label for="tipoMovimentacao">Tipo de Movimentação:</label>
+                <select id="tipoMovimentacao" name="tipoMovimentacao" required>
+                    <option value="ENTRADA">Entrada</option>
+                    <option value="SAIDA">Saída</option>
+                </select>
+                <br>
+                <label for="quantidadeMovimentacao">Quantidade:</label>
+                <input type="number" id="quantidadeMovimentacao" name="quantidadeMovimentacao" required>
+                <br>
+                <button type="submit">Registrar Movimentação</button>
+            </form>
+            <div id="resultado-movimentacao"></div>
+        </div>
+
+        <div id="aba-buscar-entradas-conteudo" class="aba-conteudo">
+            <h2>Buscar Entradas por Intervalo de Datas</h2>
+            <form id="buscarEntradasForm">
+                <label for="idProduto">ID do Produto:</label>
+                <input type="number" id="idProduto" name="idProduto" required>
+                <br>
+                <label for="dataInicial">Data Inicial:</label>
+                <input type="date" id="dataInicial" name="dataInicial" required>
+                <br>
+                <label for="dataFinal">Data Final:</label>
+                <input type="date" id="dataFinal" name="dataFinal" required>
+                <br>
+                <button type="submit">Buscar Entradas</button>
+            </form>
+        
+            <div id="resultado-buscar-entradas">
+                <!-- Aqui serão exibidos os resultados da busca de entradas por intervalo de datas -->
+            </div>
+        </div>  
+
+        <div id="aba-buscar-saidas-conteudo" class="aba-conteudo">
+            <h2>Buscar Saídas por Intervalo de Datas</h2>
+            <form id="buscarSaidasForm">
+                <label for="idProdutoSaida">ID do Produto:</label>
+                <input type="number" id="idProdutoSaida" name="idProdutoSaida" required>
+                <br>
+                <label for="dataInicialSaida">Data Inicial:</label>
+                <input type="date" id="dataInicialSaida" name="dataInicialSaida" required>
+                <br>
+                <label for="dataFinalSaida">Data Final:</label>
+                <input type="date" id="dataFinalSaida" name="dataFinalSaida" required>
+                <br>
+                <button type="submit">Buscar Saídas</button>
+            </form>
+        
+            <div id="resultado-buscar-saidas">
+                <!-- Aqui serão exibidos os resultados da busca de saídas por intervalo de datas -->
+            </div>
+        </div>
+        
+        <div id="aba-estornar-entrada-conteudo" class="aba-conteudo">
+            <h2>Estornar Entrada de Produto</h2>
+            <form id="estornarEntradaForm">
+                <label for="idProdutoEstornarEntrada">ID do Produto:</label>
+                <input type="number" id="idProdutoEstornarEntrada" name="idProdutoEstornarEntrada" required>
+                <br>
+                <label for="quantidadeEstorno">Quantidade a Estornar:</label>
+                <input type="number" id="quantidadeEstorno" name="quantidadeEstorno" required>
+                <br>
+                <button type="submit">Estornar Entrada</button>
+            </form>
+        
+            <div id="resultado-estornar-entrada">
+                <!-- Aqui será exibida a mensagem de resultado do estorno de entrada do produto -->
+            </div>
+        </div>
+        
+        <div id="aba-estornar-saida-conteudo" class="aba-conteudo">
+            <h2>Estornar Saída de Produto</h2>
+            <form id="estornarSaidaForm">
+                <label for="idProdutoEstornarSaida">ID do Produto:</label>
+                <input type="number" id="idProdutoEstornarSaida" name="idProdutoEstornarSaida" required>
+                <br>
+                <label for="quantidadeEstornoSaida">Quantidade a Estornar:</label>
+                <input type="number" id="quantidadeEstornoSaida" name="quantidadeEstornoSaida" required>
+                <br>
+                <button type="submit">Estornar Saída</button>
+            </form>
+        
+            <div id="resultado-estornar-saida">
+                <!-- Aqui será exibida a mensagem de resultado do estorno de saída do produto -->
+            </div>
+        </div>
+
+        <div id="aba-comparativo-conteudo" class="aba-conteudo">
+            <h2>Comparativo de Entradas e Saídas</h2>
+            <form id="comparativoForm">
+                <label for="dataComparativo">Data:</label>
+                <input type="date" id="dataComparativo" name="dataComparativo" required>
+                <br>
+                <label for="intervaloComparativo">Intervalo:</label>
+                <select id="intervaloComparativo" name="intervaloComparativo" required>
+                    <option value="dia">Dia</option>
+                    <option value="mes">Mês</option>
+                    <option value="ano">Ano</option>
+                    <!-- Adicione mais opções de intervalo conforme necessário -->
+                </select>
+                <br>
+                <button type="submit">Comparar Entradas e Saídas</button>
+            </form>
+        
+            <div id="resultado-comparativo">
+                <!-- Aqui serão exibidos os resultados da comparação de entradas e saídas -->
+            </div>
+        </div>
+        
+        
+
+
+         </div>
+        <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+/* Estilos CSS aqui */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    padding: 20px 0;
+    background-color: #007bff;
+    color: #fff;
+}
+
+.aba-conteudo {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    margin: 20px 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.produto {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.produto p {
+    margin: 5px 0;
+}
+
+
+.resultado {
+    background-color: #f2f2f2;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Estilo para mensagens de sucesso */
+.sucesso {
+    color: green;
+}
+
+/* Estilo para mensagens de erro */
+.erro {
+    color: red;
+    font-weight: bold;
+}
+
+ul {
+    list-style: none; /* Remove os marcadores padrão da lista */
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilo para os itens da lista (li) */
+ul li {
+    margin: 5px 0; /* Espaço entre os itens da lista */
+    padding: 10px; /* Preenchimento interno nos itens */
+    border: 1px solid #ddd; /* Borda em volta de cada item */
+    border-radius: 5px; /* Borda arredondada */
+    background-color: #f2f2f2; /* Cor de fundo */
+    font-size: 16px; /* Tamanho da fonte */
+}
+
+/* Estilo adicional para realçar itens de sucesso na lista */
+ul li.sucesso {
+    background-color: #cfe8cf; /* Cor de fundo verde para sucesso */
+    border-color: #4caf50; /* Borda verde para sucesso */
+}
+
+/* Estilo adicional para realçar itens de erro na lista */
+ul li.erro {
+    background-color: #f7c4c4; /* Cor de fundo vermelha para erro */
+    border-color: #f44336; /* Borda vermelha para erro */
+    font-weight: bold; /* Texto em negrito para erro */
+}
